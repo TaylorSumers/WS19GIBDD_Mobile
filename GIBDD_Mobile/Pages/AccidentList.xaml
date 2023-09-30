@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GIBDD_Mobile.Pages.AccidentList"
+             Title="Список ДТП">
+    
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+        </Style>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <!-- из за AL не видно последний элемент LW -->
+        <AbsoluteLayout>
+            <ListView x:Name="lwAccidents" HasUnevenRows="True" ItemSelected="lwAccidents_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="0.6*"/>
+                                    <ColumnDefinition Width="0.4*"/>
+                                    <ColumnDefinition Width="60"/>
+                                </Grid.ColumnDefinitions>
+                                <Rectangle BackgroundColor="{Binding Color}" HeightRequest="50" WidthRequest="20" Stroke="black"/>
+                                <Label Text="{Binding Type}" FontSize="20" Grid.Column="1"/>
+                                <Label Text="{Binding Date, StringFormat='{0:dd.MM.yyyy HH:mm}'}" Grid.Column="2" />
+                                <Label Text="{Binding ParticipantsAmount, StringFormat='{0} уч.'}" Grid.Column="3"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button CornerRadius="50" BackgroundColor="DeepSkyBlue" Text="+" FontSize="30" TextColor="White" x:Name="btnAddAccident"
+                    AbsoluteLayout.LayoutBounds="0.9,0.95,60,60" AbsoluteLayout.LayoutFlags="PositionProportional"
+                    Clicked="btnAddAccident_Clicked"/>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+    
+</ContentPage>

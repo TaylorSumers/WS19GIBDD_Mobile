@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GIBDD_Mobile.Pages.AccidentConstructorPages.Step1"
+             Title="Шаг 1. Краткая информация">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+
+                <Label Text="Классификация ДТП:"/>
+                <Picker>
+                    <Picker.Items>
+                        <x:String>Столкновение</x:String>
+                        <x:String>Наезд</x:String>
+                        <x:String>Опрокидование</x:String>
+                        <x:String>Прочее</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <!-- Participants info -->
+                <Label Text="Информация об участниках"/>
+                <ListView x:Name="lwParticipants" HasUnevenRows="True" SelectionMode="None" HeightRequest="100">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Name}"/>
+                                    <Label Text="{Binding Surname}"/>
+                                    <Label Text="{Binding Patronymic}"/>
+                                    <Label Text="{Binding LicenseNum}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Button Text="Добавить участника" x:Name="btnAddParticipant" Clicked="btnAddParticipant_Clicked"/>
+
+                <!-- Accident place info -->
+                <Label Text="Информация о месте проишествия"/>
+                <Entry Placeholder="Улица" Text="{Binding Place.Street}"/>
+                <Entry Placeholder="Дом" Text="{Binding Place.House}"/>
+                <Entry Placeholder="Ряд дороги" Text="{Binding Place.RoadRow}"/>
+                <Entry Placeholder="Полоса движения" Text="{Binding Place.TrafficLane}"/>
+
+                <!-- Vehicles info -->
+                <Label Text="Информация о транспортных средствах"/>
+                <ListView x:Name="lwVehicles" HasUnevenRows="True" HeightRequest="100">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding CarNumber}"/>
+                                    <Label Text="{Binding RegistrationNumber}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Button Text="Добавить Т/С" x:Name="btnAddCar" Clicked="btnAddCar_Clicked"/>
+
+
+                <Label Text="Информация о других объектах (препятствия, животные и тд)"/>
+                <Editor HeightRequest="100"/>
+                <Label Text="Количество жертв"/>
+                <Entry Keyboard="Numeric"/>
+                <Label Text="Дата и время ДТП"/>
+                <StackLayout Orientation="Horizontal">
+                    <DatePicker/>
+                    <TimePicker/>
+                </StackLayout>
+                <Label Text="Комментарий"/>
+                <Editor HeightRequest="100"/>
+                <Button x:Name="btnNext" Text="Далее" Background="DeepSkyBlue" TextColor="White" Clicked="btnNext_Clicked"/>
+            </StackLayout>
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>

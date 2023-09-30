@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GIBDD_Mobile.Pages.AccidentConstructorPages.Step3"
+             Title="Шаг 3. План ДТП">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button x:Name="btnNext" Text="Далее" Background="DeepSkyBlue" TextColor="White" Clicked="btnNext_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

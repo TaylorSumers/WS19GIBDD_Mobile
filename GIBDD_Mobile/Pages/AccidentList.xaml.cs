@@ -1,10 +1,5 @@
 ﻿using GIBDD_Mobile.Entities;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -16,14 +11,13 @@ namespace GIBDD_Mobile.Pages
 		public AccidentList()
 		{
 			InitializeComponent();
-			for(int i = 0; i < 5;  i++)
+			for(int i = 0; i < 15;  i++)
 			{
                 DbContext.Accidents.Add(new Accident
                 {
                     ID = 1,
                     Date = DateTime.Now,
                     Type = "Столкновение",
-                    ParticipantsAmount = i,
 					Victims = i
                 });
             }

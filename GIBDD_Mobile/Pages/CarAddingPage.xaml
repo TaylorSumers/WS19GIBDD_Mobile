@@ -1,12 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="GIBDD_Mobile.Pages.CarAddingPage">
+             x:Class="GIBDD_Mobile.Pages.CarAddingPage"
+             Title="Добавление автомобиля">
     <ContentPage.Content>
         <StackLayout>
             <Entry Placeholder="Автомобильный номер" Text="{Binding CarNumber}"/>
             <Entry Placeholder="Номер св. о регистрации" Text="{Binding RegistrationNumber}"/>
-            <Button Text="Сохранить" x:Name="btnSave" Clicked="btnSave_Clicked"/>
+            <Button Text="Сохранить" x:Name="btnSave" Clicked="btnSave_Clicked"
+                     Background="DeepSkyBlue" TextColor="White"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

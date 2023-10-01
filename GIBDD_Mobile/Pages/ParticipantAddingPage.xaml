@@ -5,11 +5,12 @@
              Title="Добавление участника ДТП">
     <ContentPage.Content>
         <StackLayout>
-            <Entry Placeholder="Имя" Text="{Binding Name}"/>
             <Entry Placeholder="Фамилия" Text="{Binding Surname}"/>
+            <Entry Placeholder="Имя" Text="{Binding Name}"/>
             <Entry Placeholder="Отчество" Text="{Binding Patronymic}"/>
             <Entry Placeholder="Номер В/У" Text="{Binding LicenseNum}"/>
-            <Button Text="Сохранить" x:Name="btnSave" Clicked="btnSave_Clicked"/>
+            <Button Text="Сохранить" x:Name="btnSave" Clicked="btnSave_Clicked" 
+                    Background="DeepSkyBlue" TextColor="White"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

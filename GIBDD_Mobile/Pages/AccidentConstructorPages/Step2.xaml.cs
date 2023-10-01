@@ -1,14 +1,7 @@
 ﻿using GIBDD_Mobile.Entities;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using static Xamarin.Essentials.Permissions;
 
 namespace GIBDD_Mobile.Pages.AccidentConstructorPages
 {
@@ -25,7 +18,6 @@ namespace GIBDD_Mobile.Pages.AccidentConstructorPages
 
         private void btnNext_Clicked(object sender, EventArgs e)
         {
-            // TODO: Проверки
             Navigation.PushAsync(new Step3(_accident));
         }
 

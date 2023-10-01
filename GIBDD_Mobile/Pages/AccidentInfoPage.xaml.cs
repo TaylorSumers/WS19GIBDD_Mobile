@@ -13,12 +13,12 @@ namespace GIBDD_Mobile.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AccidentInfoPage : ContentPage
     {
-        private Accident _accident;
-
         public AccidentInfoPage(Accident accident)
         {
             InitializeComponent();
-            _accident = accident;
+            BindingContext = accident;
+            lwParticipants.ItemsSource = accident.Participants;
+            lwVehicles.ItemsSource = accident.Vehicles;
         }
     }
 }

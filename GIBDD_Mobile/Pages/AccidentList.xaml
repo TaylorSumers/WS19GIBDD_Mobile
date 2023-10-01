@@ -10,11 +10,11 @@
             <Setter Property="VerticalOptions" Value="Center"/>
         </Style>
     </ContentPage.Resources>
-    
+
     <ContentPage.Content>
-        <!-- из за AL не видно последний элемент LW -->
         <AbsoluteLayout>
-            <ListView x:Name="lwAccidents" HasUnevenRows="True" ItemSelected="lwAccidents_ItemSelected">
+            <ListView x:Name="lwAccidents" HasUnevenRows="True" ItemSelected="lwAccidents_ItemSelected" 
+                      AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

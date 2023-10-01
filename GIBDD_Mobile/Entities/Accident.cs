@@ -12,11 +12,12 @@ namespace GIBDD_Mobile.Entities
         public int Victims { get; set; }
         public string Note { get; set; }
         public List<AccidentParticipant> Participants = new List<AccidentParticipant>();
-        public AccidentPlace Place = new AccidentPlace();
+        public AccidentPlace Place  { get; set; } = new AccidentPlace();
         public List<Vehicle> Vehicles = new List<Vehicle>();
+        public string Objects { get; set; }
 
         public string Type { get; set; }
-        public int ParticipantsAmount { get; set; } // Override
+        public int ParticipantsAmount { get => Participants.Count; }
         public string Color
         {
             get

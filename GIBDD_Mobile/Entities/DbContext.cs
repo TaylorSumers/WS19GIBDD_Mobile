@@ -13,7 +13,6 @@ namespace GIBDD_Mobile.Entities
                 ID = 1,
                 Date = DateTime.Now,
                 Type = "Столкновение",
-                ParticipantsAmount = 2,
                 Victims = 0
             }
         };

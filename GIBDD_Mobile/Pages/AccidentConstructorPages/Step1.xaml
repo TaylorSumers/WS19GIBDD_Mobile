@@ -3,12 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GIBDD_Mobile.Pages.AccidentConstructorPages.Step1"
              Title="Шаг 1. Краткая информация">
+    
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
 
                 <Label Text="Классификация ДТП:"/>
-                <Picker>
+                <Picker SelectedItem="{Binding Type}">
                     <Picker.Items>
                         <x:String>Столкновение</x:String>
                         <x:String>Наезд</x:String>
@@ -33,7 +34,7 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <Button Text="Добавить участника" x:Name="btnAddParticipant" Clicked="btnAddParticipant_Clicked"/>
+                <Button Text="Добавить участника" x:Name="btnAddParticipant" Clicked="btnAddParticipant_Clicked" Background="DeepSkyBlue" TextColor="White"/>
 
                 <!-- Accident place info -->
                 <Label Text="Информация о месте проишествия"/>
@@ -56,23 +57,23 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <Button Text="Добавить Т/С" x:Name="btnAddCar" Clicked="btnAddCar_Clicked"/>
+                <Button Text="Добавить Т/С" x:Name="btnAddCar" Clicked="btnAddCar_Clicked" Background="DeepSkyBlue" TextColor="White"/>
 
 
                 <Label Text="Информация о других объектах (препятствия, животные и тд)"/>
-                <Editor HeightRequest="100"/>
+                <Editor HeightRequest="100" Text="{Binding Objects}"/>
                 <Label Text="Количество жертв"/>
-                <Entry Keyboard="Numeric"/>
+                <Entry Keyboard="Numeric" Text="{Binding Victims}"/>
                 <Label Text="Дата и время ДТП"/>
                 <StackLayout Orientation="Horizontal">
-                    <DatePicker/>
-                    <TimePicker/>
+                    <DatePicker x:Name="dpAccidentDate"/>
+                    <TimePicker x:Name="tpAccidentTime"/>
                 </StackLayout>
                 <Label Text="Комментарий"/>
-                <Editor HeightRequest="100"/>
+                <Editor HeightRequest="100" Text="{Binding Note}"/>
                 <Button x:Name="btnNext" Text="Далее" Background="DeepSkyBlue" TextColor="White" Clicked="btnNext_Clicked"/>
+
             </StackLayout>
         </ScrollView>
-
     </ContentPage.Content>
 </ContentPage>

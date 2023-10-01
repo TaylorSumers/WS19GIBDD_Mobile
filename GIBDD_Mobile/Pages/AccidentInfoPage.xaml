@@ -4,10 +4,61 @@
              x:Class="GIBDD_Mobile.Pages.AccidentInfoPage"
              Title="Информация о ДТП">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+
+        <ScrollView>
+            <StackLayout>
+
+                <Label Text="{Binding Type}" HorizontalOptions="Center" FontSize="Title" Margin="10"/>
+
+                <!-- Participants info -->
+                <Label Text="Участники" FontSize="20"/>
+                <ListView x:Name="lwParticipants" HasUnevenRows="True" SelectionMode="None" HeightRequest="100">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Name}"/>
+                                    <Label Text="{Binding Surname}"/>
+                                    <Label Text="{Binding Patronymic}"/>
+                                    <Label Text="{Binding LicenseNum}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <!-- Accident place info -->
+                <Label Text="Место проишествия" FontSize="20"/>
+                <Label Text="{Binding Place.Street, StringFormat='Улица: {0}'}"/>
+                <Label Text="{Binding Place.House, StringFormat='Дом: {0}'}"/>
+                <Label Text="{Binding Place.RoadRow, StringFormat='Ряд дороги: {0}'}"/>
+                <Label Text="{Binding Place.TrafficLane, StringFormat='Полоса движения: {0}'}"/>
+
+                <!-- Vehicles info -->
+                <Label Text="Транспортные средства"  FontSize="20"/>
+                <ListView x:Name="lwVehicles" HasUnevenRows="True" HeightRequest="100" SelectionMode="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding CarNumber}"/>
+                                    <Label Text="{Binding RegistrationNumber}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+
+                <Label Text="Другие объекты"  FontSize="20"/>
+                <Label HeightRequest="100" Text="{Binding Objects}"/>
+                <Label Text="{Binding Victims, StringFormat='Количество жертв: {0}'}"/>
+                <Label Text="{Binding Date, StringFormat='Дата и время ДТП: {0:dd.MM.yyyy}'}"/>
+
+                <Label Text="Комментарий"  FontSize="20"/>
+                <Label HeightRequest="100" Text="{Binding Note}"/>
+
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
